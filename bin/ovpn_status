@@ -1,0 +1,14 @@
+#!/bin/sh
+## @licence MIT <http://opensource.org/licenses/MIT>
+## @author Copyright (C) <https://github.com/kylemanna/docker-openvpn>
+
+#
+# Get OpenVPN server status
+#
+if [ "$DEBUG" == "1" ]; then
+  set -x
+fi
+
+set -e
+
+tail -F /tmp/openvpn-status.log
