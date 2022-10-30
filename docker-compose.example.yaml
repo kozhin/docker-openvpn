@@ -1,0 +1,27 @@
+---
+version: '3'
+
+networks:
+  app_net:
+
+volumes:
+
+  openvpn_data:
+    driver: local
+
+services:
+
+  openvpn:
+    logging:
+      driver: none
+    cap_add:
+      - NET_ADMIN
+    image: kozhin/docker-openvpn:latest
+    container_name: openvpn
+    restart: unless-stopped
+    networks:
+      - app_net
+    volumes:
+      - openvpn_data:/etc/openvpn
+    ports:
+      - 1194:1194
