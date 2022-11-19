@@ -10,10 +10,10 @@ build:
 	--push \
 	--platform=linux/amd64,linux/arm64 \
 	-t kozhin/docker-openvpn:2.5.7 \
+	-t kozhin/docker-openvpn:latest \
 	-f Dockerfile \
 	.
-#
-# TODO: add latest image tagging
+
 #
 # TEST actions
 # Local testing
