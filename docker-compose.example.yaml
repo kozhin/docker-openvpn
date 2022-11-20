@@ -16,7 +16,7 @@ services:
       driver: none
     cap_add:
       - NET_ADMIN
-    image: kozhin/docker-openvpn:latest
+    image: kozhin/docker-openvpn:latest # or use version tag
     container_name: openvpn
     restart: unless-stopped
     networks:
@@ -24,4 +24,4 @@ services:
     volumes:
       - openvpn_data:/etc/openvpn
     ports:
-      - 1194:1194
+      - '1194:1194/udp'
