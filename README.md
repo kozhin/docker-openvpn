@@ -37,9 +37,10 @@ To use this Docker image some manual configuration is required.
 2. Adjust file for your needs and rename it to `docker-compose.yaml`
 3. Run `docker compose up -d`
 4. Run `docker compose stop`
-5. Run script `install.sh` from `scripts` folder on your host machine and follow instructions on the scteen
-6. Run `docker componse up -d`
-7. (Optional) run script `add_user.sh` from `scripts` folder to create new users
+5. Get Docker volume name using `docker volume ls` and update files in `scripts` folder
+6. Run script `install.sh` from `scripts` folder on your host machine and follow instructions on the scteen
+7. Run `docker componse up -d`
+8. (Optional) run script `add_user.sh` from `scripts` folder to create new users
 
 ### Shutting down
 
