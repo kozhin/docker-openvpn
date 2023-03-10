@@ -1,0 +1,8 @@
+# Ignore git
+.git/
+
+# Ignore MacOS X files
+.DS_Store
+
+# Ignore VS Code configuration
+.vscode/

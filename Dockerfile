@@ -7,11 +7,15 @@ FROM alpine:edge
 LABEL Description="OpenVPN Docker image" \
       Maintainer="Konstantin Kozhin <1387510+kozhin@users.noreply.github.com>" \
       Vendor="" \
-      Version="0.3.0"
+      Version="0.3.1"
 
+# Pass OpenVPN version
+ARG OPENVPN_VERSION
+
+# Install necessary packages
 RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories && \
     echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk add --update --no-cache openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester && \
+    apk add --update --no-cache openvpn=${OPENVPN_VERSION} iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
