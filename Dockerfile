@@ -7,7 +7,7 @@ FROM alpine:edge
 LABEL Description="OpenVPN Docker image" \
       Maintainer="Konstantin Kozhin <1387510+kozhin@users.noreply.github.com>" \
       Vendor="" \
-      Version="0.3.1"
+      Version="0.3.3"
 
 # Pass OpenVPN version
 ARG OPENVPN_VERSION
