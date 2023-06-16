@@ -2,6 +2,12 @@
 # Changelog
 
 =====================
+## [0.3.5] 16/06/2023 - `OpenVPN server`: Version upgrade
+
+Changes:
+1. OpenVPN version `2.6.5` added
+
+=====================
 ## [0.3.4] 14/05/2023 - `OpenVPN server`: Version upgrade
 
 Changes:
