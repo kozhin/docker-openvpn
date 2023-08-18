@@ -9,8 +9,8 @@ build:
 	docker buildx build \
 	--push \
 	--platform=linux/amd64,linux/arm64 \
-	--build-arg OPENVPN_VERSION=2.6.5-r0 \
-	-t kozhin/docker-openvpn:2.6.5 \
+	--build-arg OPENVPN_VERSION=2.6.6-r0 \
+	-t kozhin/docker-openvpn:2.6.6 \
 	-t kozhin/docker-openvpn:latest \
 	-f Dockerfile \
 	.
