@@ -2,12 +2,14 @@
 # - https://github.com/jpetazzo/dockvpn
 # - https://github.com/kylemanna/docker-openvpn
 
-FROM alpine:edge
+ARG REPO_PATH=""
+
+FROM ${REPO_PATH}alpine:edge
 
 LABEL Description="OpenVPN Docker image" \
       Maintainer="Konstantin Kozhin <1387510+kozhin@users.noreply.github.com>" \
       Vendor="" \
-      Version="0.3.3"
+      Version="0.3.10"
 
 # Pass OpenVPN version
 ARG OPENVPN_VERSION
@@ -20,12 +22,12 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/community/" >> /etc/apk/reposi
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 # Needed by scripts
-ENV OPENVPN /etc/openvpn
-ENV EASYRSA /usr/share/easy-rsa
-ENV EASYRSA_PKI $OPENVPN/pki
+ENV OPENVPN="/etc/openvpn"
+ENV EASYRSA="/usr/share/easy-rsa"
+ENV EASYRSA_PKI="${OPENVPN}/pki"
 
 # Prevents refused client connection because of an expired CRL
-ENV EASYRSA_CRL_DAYS 3650
+ENV EASYRSA_CRL_DAYS=3650
 
 VOLUME [ "/etc/openvpn" ]
 

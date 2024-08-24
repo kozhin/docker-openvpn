@@ -3,12 +3,12 @@
 # Hint:
 # Creates initial configuration for OpenVPN server
 #
-OPEN_VPN_IMAGE="kozhin/docker-openvpn"
+REPO_PATH="registry.example.com:5000/"
+IMAGE_NAME="kozhin/docker-openvpn:latest"
+
 OPEN_VPN_LOGS_DRIVER="none"
-
-OPEN_VPN_DATA="CHANGE_ME!" # openvpn_data
-OPEN_VPN_HOST="CHANGE_ME!" # vpn.example.com
-
+OPEN_VPN_DATA="CHANGE_ME!" # e.g. openvpn_data
+OPEN_VPN_HOST="CHANGE_ME!" # e.g. vpn.example.com
 #
 # Creates OpenVPN configuration
 #
@@ -16,14 +16,14 @@ docker run \
   -v ${OPEN_VPN_DATA}:/etc/openvpn \
   --log-driver=${OPEN_VPN_LOGS_DRIVER} \
   --rm \
-  ${OPEN_VPN_IMAGE} ovpn_genconfig -u udp://${OPEN_VPN_HOST}
+  ${REPO_PATH}${IMAGE_NAME} ovpn_genconfig -u udp://${OPEN_VPN_HOST}
 
 docker run \
   -v ${OPEN_VPN_DATA}:/etc/openvpn \
   --log-driver=${OPEN_VPN_LOGS_DRIVER} \
   --rm \
   -it \
-  ${OPEN_VPN_IMAGE} ovpn_initpki
+  ${REPO_PATH}${IMAGE_NAME} ovpn_initpki
 
 echo "COMPLETED: install.sh"
 exit 0
